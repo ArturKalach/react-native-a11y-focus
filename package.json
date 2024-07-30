@@ -1,7 +1,7 @@
 {
   "name": "react-native-a11y-focus",
   "version": "0.1.0",
-  "description": "Set a11y focus by ref",
+  "description": "ReactNative commands based accessibility focus",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
@@ -41,9 +41,16 @@
     "release": "release-it"
   },
   "keywords": [
+    "react-native-a11y",
+    "a11y",
+    "accessibility",
+    "accessibility focus",
+    "screen reader",
     "react-native",
     "ios",
-    "android"
+    "android",
+    "bridgeless",
+    "fabric"
   ],
   "repository": {
     "type": "git",
@@ -177,7 +184,7 @@
   "codegenConfig": {
     "name": "RNA11yFocusViewSpec",
     "type": "components",
-    "jsSrcsDir": "src"
+    "jsSrcsDir": "src/nativeSpecs"
   },
   "create-react-native-library": {
     "type": "view-mixed",

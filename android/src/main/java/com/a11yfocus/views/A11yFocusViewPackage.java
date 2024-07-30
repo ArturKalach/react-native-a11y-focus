@@ -1,6 +1,6 @@
-
 package com.a11yfocus;
 
+import com.a11yfocus.views.view.A11yFocusViewManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -15,6 +15,7 @@ public class A11yFocusViewPackage implements ReactPackage {
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
     List<ViewManager> viewManagers = new ArrayList<>();
     viewManagers.add(new A11yFocusViewManager());
+
     return viewManagers;
   }
 

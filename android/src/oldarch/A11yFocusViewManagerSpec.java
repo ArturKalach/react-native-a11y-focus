@@ -1,12 +1,10 @@
 package com.a11yfocus;
 
-import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
+import com.facebook.react.views.view.ReactViewGroup;
+import com.facebook.react.views.view.ReactViewManager;
 
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.SimpleViewManager;
-
-public abstract class A11yFocusViewManagerSpec<T extends View> extends SimpleViewManager<T> {
-  public abstract void setColor(T view, @Nullable String value);
+public abstract class A11yFocusViewManagerSpec<T extends ViewGroup> extends ReactViewManager {
+  public abstract void focus(ReactViewGroup view);
 }

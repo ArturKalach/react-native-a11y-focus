@@ -1,2 +1,4 @@
-export { default as A11yFocusView } from './A11yFocusViewNativeComponent';
-export * from './A11yFocusViewNativeComponent';
+export {
+  A11yFocusView,
+  type A11yFocusViewType,
+} from './components/A11yFocusView';

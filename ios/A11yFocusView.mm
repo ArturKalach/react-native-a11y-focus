@@ -7,7 +7,6 @@
 #import <react/renderer/components/RNA11yFocusViewSpec/RCTComponentViewHelpers.h>
 
 #import "RCTFabricComponentsPlugins.h"
-#import "Utils.h"
 
 using namespace facebook::react;
 
@@ -26,30 +25,37 @@ using namespace facebook::react;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-  if (self = [super initWithFrame:frame]) {
-    static const auto defaultProps = std::make_shared<const A11yFocusViewProps>();
-    _props = defaultProps;
-
-    _view = [[UIView alloc] init];
-
-    self.contentView = _view;
-  }
-
-  return self;
+    if (self = [super initWithFrame:frame]) {
+        static const auto defaultProps = std::make_shared<const A11yFocusViewProps>();
+        _props = defaultProps;
+        
+        _view = [[UIView alloc] init];
+        
+        self.contentView = _view;
+    }
+    
+    return self;
 }
 
 - (void)updateProps:(Props::Shared const &)props oldProps:(Props::Shared const &)oldProps
 {
     const auto &oldViewProps = *std::static_pointer_cast<A11yFocusViewProps const>(_props);
     const auto &newViewProps = *std::static_pointer_cast<A11yFocusViewProps const>(props);
-
-    if (oldViewProps.color != newViewProps.color) {
-        NSString * colorToConvert = [[NSString alloc] initWithUTF8String: newViewProps.color.c_str()];
-        [_view setBackgroundColor: [Utils hexStringToColor:colorToConvert]];
-    }
-
+    
     [super updateProps:props oldProps:oldProps];
 }
+
+- (void)focusView {
+    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self);
+}
+
+- (void)handleCommand:(const NSString *)commandName args:(const NSArray *)args {
+    NSString *FOCUS = @"focus";
+    if([commandName isEqual:FOCUS]) {
+        [self focusView];
+    }
+}
+
 
 Class<RCTComponentViewProtocol> A11yFocusViewCls(void)
 {

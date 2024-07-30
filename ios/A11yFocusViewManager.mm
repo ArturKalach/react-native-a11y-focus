@@ -1,7 +1,5 @@
 #import <React/RCTViewManager.h>
 #import <React/RCTUIManager.h>
-#import "RCTBridge.h"
-#import "Utils.h"
 
 @interface A11yFocusViewManager : RCTViewManager
 @end
@@ -10,14 +8,15 @@
 
 RCT_EXPORT_MODULE(A11yFocusView)
 
-- (UIView *)view
+RCT_EXPORT_METHOD(focus:(nonnull NSNumber *)reactTag)
 {
-  return [[UIView alloc] init];
-}
-
-RCT_CUSTOM_VIEW_PROPERTY(color, NSString, UIView)
-{
-  [view setBackgroundColor: [Utils hexStringToColor:json]];
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+        UIView *view = viewRegistry[reactTag];
+        if (!view || ![view isKindOfClass:[UIView class]]) {
+            return;
+        }
+        UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, view);
+    }];
 }
 
 @end
