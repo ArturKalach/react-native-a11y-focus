@@ -30,11 +30,11 @@ public class A11yFocusViewManager extends A11yFocusViewManagerSpec {
   @Override
   public void focus(ReactViewGroup view) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      if(view.isFocusable()) {
+      if (view.isImportantForAccessibility()) {
         view.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
       } else {
         View child = view.getChildAt(0);
-        if(child != null && child.isFocusable()) {
+        if (child != null && child.isImportantForAccessibility()) {
           child.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
         }
       }
