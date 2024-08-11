@@ -935,7 +935,7 @@ PODS:
   - React-Mapbuffer (0.74.3):
     - glog
     - React-debug
-  - react-native-a11y-focus (0.1.0):
+  - react-native-a11y-focus (0.1.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1395,7 +1395,7 @@ SPEC CHECKSUMS:
   React-jsitracing: 6b3c8c98313642140530f93c46f5a6ca4530b446
   React-logger: fa92ba4d3a5d39ac450f59be2a3cec7b099f0304
   React-Mapbuffer: 9f68550e7c6839d01411ac8896aea5c868eff63a
-  react-native-a11y-focus: ad2e136cf1f2879b0cf3c04e82882cbd2f9a0ed0
+  react-native-a11y-focus: d2580d77b6dec2d87aa4d6ee66cdedfc2e4fd4ad
   React-nativeconfig: fa5de9d8f4dbd5917358f8ad3ad1e08762f01dcb
   React-NativeModulesApple: 585d1b78e0597de364d259cb56007052d0bda5e5
   React-perflogger: 7bb9ba49435ff66b666e7966ee10082508a203e8

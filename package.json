@@ -1,6 +1,6 @@
 {
   "name": "react-native-a11y-focus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ReactNative commands based accessibility focus",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
